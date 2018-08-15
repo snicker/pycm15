@@ -43,7 +43,7 @@ class Decoded_Echo(IPlugin):
     def cm15DataReceivedHandler(self, data):
         message = Decoded_Echo.Parser.parse(data)
         print("Data received: ")
-        pprint(Message)
+        pprint(message)
     def cm15DataWrittenHandler(self, data):
         print("Data written: ")
         pprint(data)
