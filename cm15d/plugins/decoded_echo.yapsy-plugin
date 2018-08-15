@@ -1,0 +1,9 @@
+[Core]
+Name = Decoded_Echo
+Module = decoded_echo
+
+[Documentation]
+Author = Nick Gordon
+Version = 1.0
+Website = https://github.com/snicker/pycm15
+Description = CM15d plugin that will attempt to decode incoming messages into useful python objects
