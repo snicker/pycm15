@@ -26,12 +26,20 @@ class BaseX10Message(object):
         
 class PowerFailureMessage(BaseX10Message):
     pass
+    
+class PowerlineMessage(BaseX10Message):
+    pass
+    
+class RFMessage(BaseX10Message):
+    pass
         
 class X10MessageParser(object):
     """http://www.linuxha.com/USB/cm15a.html"""
     """http://www.linuxha.com/athome/common/cm15d/cm15d.html"""
     MessageTypes = {
-        0xA5: PowerFailureMessage
+        0xA5: PowerFailureMessage,
+        0x5A: PowerlineMessage,
+        0x5D: RFMessage
     }
     def parse(self, data):
         if len(data) > 0:
@@ -43,7 +51,7 @@ class Decoded_Echo(IPlugin):
     def cm15DataReceivedHandler(self, data):
         message = Decoded_Echo.Parser.parse(data)
         print("Data received: ")
-        pprint(message)
+        print(message)
     def cm15DataWrittenHandler(self, data):
         print("Data written: ")
         pprint(data)
